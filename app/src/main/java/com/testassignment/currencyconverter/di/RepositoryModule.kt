@@ -30,7 +30,7 @@ object RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideGetCurrenciesRepository(appLocalDataSource: AppLocalDataSource): SelectCurrencyRepository {
-        return SelectCurrencyRepositoryImp(appLocalDataSource)
+    fun provideGetCurrenciesRepository(): SelectCurrencyRepository {
+        return SelectCurrencyRepositoryImp()
     }
 }
