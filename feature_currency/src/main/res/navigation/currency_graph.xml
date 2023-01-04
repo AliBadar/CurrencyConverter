@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:moduleName="@string/title_feature_currency"
+    app:startDestination="@id/currencyFragment">
+    <fragment
+        android:id="@+id/currencyFragment"
+        android:name="com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.CurrencyFragment"
+        android:label="CurrencyFragment">
+        <!--        <action-->
+        <!--            android:id="@+id/action_weatherFragment_to_fragmentCities2"-->
+        <!--            app:destination="@id/fragmentCities2" />-->
+        <action
+            android:id="@+id/action_currencyFragment_to_selectCurrencyFragment"
+            app:destination="@id/selectCurrencyFragment">
+            <argument
+                android:name="baseCurrency"
+                app:argType="string" />
+        </action>
+
+    </fragment>
+    <fragment
+        android:id="@+id/selectCurrencyFragment"
+        android:name="com.testassignment.currencyconverter.feature.currency.presentation.ui.select_currency.SelectCurrencyFragment"
+        android:label="fragment_select_currency"
+        tools:layout="@layout/fragment_select_currency" />
+    <!--    <fragment-->
+    <!--        android:id="@+id/fragmentCities2"-->
+    <!--        android:name="com.ahoy.weatherapp.feature.weather.presentation.ui.cities.FragmentCities"-->
+    <!--        android:label="FragmentCities" />-->
+</navigation>

@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Currency names  -->
+    <string name="USD_AED">Emirati Dirham</string>
+    <string name="USD_AFN">Afghan Afghani</string>
+    <string name="USD_ALL">Albanian Lek</string>
+    <string name="USD_AMD">Armenian Dram</string>
+    <string name="USD_ANG">Dutch Guilder</string>
+    <string name="USD_AOA">Angolan Kwanza</string>
+    <string name="USD_ARS">Argentine Peso</string>
+    <string name="USD_AUD">Australian Dollar</string>
+    <string name="USD_AWG">Aruban Florin</string>
+    <string name="USD_AZN">Azerbaijani Manat</string>
+    <string name="USD_BAM">Bosnian Convertible Marka</string>
+    <string name="USD_BBD">Barbadian Dollar</string>
+    <string name="USD_BDT">Bangladeshi Taka</string>
+    <string name="USD_BGN">Bulgarian Lev</string>
+    <string name="USD_BHD">Bahraini Dinar</string>
+    <string name="USD_BIF">Burundian Franc</string>
+    <string name="USD_BMD">Bermudian Dollar</string>
+    <string name="USD_BND">Brunei Dollar</string>
+    <string name="USD_BOB">Bolivian Boliviano</string>
+    <string name="USD_BRL">Brazilian Real</string>
+    <string name="USD_BSD">Bahamian Dollar</string>
+    <string name="USD_BTC">Bitcoin</string>
+    <string name="USD_BTN">Bhutanese Ngultrum</string>
+    <string name="USD_BWP">Botswana Pula</string>
+    <string name="USD_BYN">Belarusian Ruble</string>
+    <string name="USD_BZD">Belize Dollar</string>
+    <string name="USD_CAD">Canadian Dollar</string>
+    <string name="USD_CDF">Congolese Franc</string>
+    <string name="USD_CHF">Swiss Franc</string>
+    <string name="USD_CLP">Chilean Peso</string>
+    <string name="USD_CNY">Chinese Yuan Renminbi</string>
+    <string name="USD_COP">Colombian Peso</string>
+    <string name="USD_CRC">Costa Rican Colon</string>
+    <string name="USD_CUP">Cuban Peso</string>
+    <string name="USD_CVE">Cape Verdean Escudo</string>
+    <string name="USD_CZK">Czech Koruna</string>
+    <string name="USD_DJF">Djiboutian Franc</string>
+    <string name="USD_DKK">Danish Krone</string>
+    <string name="USD_DOP">Dominican Peso</string>
+    <string name="USD_DZD">Algerian Dinar</string>
+    <string name="USD_EGP">Egyptian Pound</string>
+    <string name="USD_ERN">Eritrean Nakfa</string>
+    <string name="USD_ETB">Ethiopian Birr</string>
+    <string name="USD_EUR">Euro</string>
+    <string name="USD_FJD">Fiji Dollar</string>
+    <string name="USD_FKP">Falkland Islands Pound</string>
+    <string name="USD_GBP">British Pound</string>
+    <string name="USD_GEL">Georgian Lari</string>
+    <string name="USD_GGP">Guernsey Pound</string>
+    <string name="USD_GHS">Ghanaian Cedi</string>
+    <string name="USD_GIP">Gibraltar Pound</string>
+    <string name="USD_GMD">Gambian Dalasi</string>
+    <string name="USD_GNF">Guinean Franc</string>
+    <string name="USD_GTQ">Guatemalan Quetzal</string>
+    <string name="USD_GYD">Guyanese Dollar</string>
+    <string name="USD_HKD">Hong Kong Dollar</string>
+    <string name="USD_HNL">Honduran Lempira</string>
+    <string name="USD_HRK">Croatian Kuna</string>
+    <string name="USD_HTG">Haitian Gourde</string>
+    <string name="USD_HUF">Hungarian Forint</string>
+    <string name="USD_IDR">Indonesian Rupiah</string>
+    <string name="USD_ILS">Israeli Shekel</string>
+    <string name="USD_IMP">Isle of Man Pound</string>
+    <string name="USD_INR">Indian Rupee</string>
+    <string name="USD_IQD">Iraqi Dinar</string>
+    <string name="USD_IRR">Iranian Rial</string>
+    <string name="USD_ISK">Icelandic Krona</string>
+    <string name="USD_JEP">Jersey Pound</string>
+    <string name="USD_JMD">Jamaican Dollar</string>
+    <string name="USD_JOD">Jordanian Dinar</string>
+    <string name="USD_JPY">Japanese Yen</string>
+    <string name="USD_KES">Kenyan Shilling</string>
+    <string name="USD_KGS">Kyrgyzstani Som</string>
+    <string name="USD_KHR">Cambodian Riel</string>
+    <string name="USD_KMF">Comorian Franc</string>
+    <string name="USD_KPW">North Korean Won</string>
+    <string name="USD_KRW">South Korean Won</string>
+    <string name="USD_KWD">Kuwaiti Dinar</string>
+    <string name="USD_KYD">Caymanian Dollar</string>
+    <string name="USD_KZT">Kazakhstani Tenge</string>
+    <string name="USD_LAK">Lao Kip</string>
+    <string name="USD_LBP">Lebanese Pound</string>
+    <string name="USD_LKR">Sri Lankan Rupee</string>
+    <string name="USD_LRD">Liberian Dollar</string>
+    <string name="USD_LSL">Basotho Loti</string>
+    <string name="USD_LYD">Libyan Dinar</string>
+    <string name="USD_MAD">Moroccan Dirham</string>
+    <string name="USD_MDL">Moldovan Leu</string>
+    <string name="USD_MGA">Malagasy Ariary</string>
+    <string name="USD_MKD">Macedonian Denar</string>
+    <string name="USD_MMK">Burmese Kyat</string>
+    <string name="USD_MNT">Mongolian Tughrik</string>
+    <string name="USD_MOP">Macau Pataca</string>
+    <string name="USD_MRO">Mauritanian Ouguiya</string>
+    <string name="USD_MUR">Mauritian Rupee</string>
+    <string name="USD_MVR">Maldivian Rufiyaa</string>
+    <string name="USD_MWK">Malawian Kwacha</string>
+    <string name="USD_MXN">Mexican Peso</string>
+    <string name="USD_MYR">Malaysian Ringgit</string>
+    <string name="USD_MZN">Mozambican Metical</string>
+    <string name="USD_NAD">Namibian Dollar</string>
+    <string name="USD_NGN">Nigerian Naira</string>
+    <string name="USD_NIO">Nicaraguan Cordoba</string>
+    <string name="USD_NOK">Norwegian Krone</string>
+    <string name="USD_NPR">Nepalese Rupee</string>
+    <string name="USD_NZD">New Zealand Dollar</string>
+    <string name="USD_OMR">Omani Rial</string>
+    <string name="USD_PAB">Panamanian Balboa</string>
+    <string name="USD_PEN">Peruvian Sol</string>
+    <string name="USD_PGK">Papua New Guinean Kina</string>
+    <string name="USD_PHP">Philippine Piso</string>
+    <string name="USD_PKR">Pakistani Rupee</string>
+    <string name="USD_PLN">Polish Zloty</string>
+    <string name="USD_PYG">Paraguayan Guarani</string>
+    <string name="USD_QAR">Qatari Riyal</string>
+    <string name="USD_RON">Romanian Leu</string>
+    <string name="USD_RSD">Serbian Dinar</string>
+    <string name="USD_RUB">Russian Ruble</string>
+    <string name="USD_RWF">Rwandan Franc</string>
+    <string name="USD_SAR">Saudi Arabian Riyal</string>
+    <string name="USD_SBD">Solomon Islander Dollar</string>
+    <string name="USD_SCR">Seychellois Rupee</string>
+    <string name="USD_SDG">Sudanese Pound</string>
+    <string name="USD_SEK">Swedish Krona</string>
+    <string name="USD_SGD">Singapore Dollar</string>
+    <string name="USD_SHP">Saint Helenian Pound</string>
+    <string name="USD_SLL">Sierra Leonean Leone</string>
+    <string name="USD_SOS">Somali Shilling</string>
+    <string name="USD_SRD">Surinamese Dollar</string>
+    <string name="USD_SSP">South Sudanese Pound</string>
+    <string name="USD_STN">São Tomé and Príncipe Dobra</string>
+    <string name="USD_SVC">Salvadoran Colon</string>
+    <string name="USD_SYP">Syrian Pound</string>
+    <string name="USD_SZL">Swazi Lilangeni</string>
+    <string name="USD_THB">Thai Baht</string>
+    <string name="USD_TJS">Tajikistani Somoni</string>
+    <string name="USD_TMT">Turkmenistani Manat</string>
+    <string name="USD_TND">Tunisian Dinar</string>
+    <string name="USD_TOP">Tongan Pa\'anga</string>
+    <string name="USD_TRY">Turkish Lira</string>
+    <string name="USD_TTD">Trinidadian Dollar</string>
+    <string name="USD_TWD">Taiwan New Dollar</string>
+    <string name="USD_TZS">Tanzanian Shilling</string>
+    <string name="USD_UAH">Ukrainian Hryvnia</string>
+    <string name="USD_UGX">Ugandan Shilling</string>
+    <string name="USD_USD">United States Dollar</string>
+    <string name="USD_UYU">Uruguayan Peso</string>
+    <string name="USD_UZS">Uzbekistani Som</string>
+    <string name="USD_VEF">Venezuelan Bolívar</string>
+    <string name="USD_VND">Vietnamese Dong</string>
+    <string name="USD_VUV">Ni-Vanuatu Vatu</string>
+    <string name="USD_WST">Samoan Tala</string>
+    <string name="USD_XAF">Central African CFA Franc</string>
+    <string name="USD_XAG">Silver</string>
+    <string name="USD_XAU">Gold</string>
+    <string name="USD_XCD">East Caribbean Dollar</string>
+    <string name="USD_XOF">CFA Franc</string>
+    <string name="USD_XPF">CFP Franc</string>
+    <string name="USD_YER">Yemeni Rial</string>
+    <string name="USD_ZAR">South African Rand</string>
+    <string name="USD_ZMW">Zambian Kwacha</string>
+    <string name="USD_ZWL">Zimbabwean Dollar</string>
+
+    <!-- Currency names as array -->
+    <string-array name="currency_names">
+        <item>@string/USD_AED</item>
+        <item>@string/USD_AFN</item>
+        <item>@string/USD_ALL</item>
+        <item>@string/USD_AMD</item>
+        <item>@string/USD_ANG</item>
+        <item>@string/USD_AOA</item>
+        <item>@string/USD_ARS</item>
+        <item>@string/USD_AUD</item>
+        <item>@string/USD_AWG</item>
+        <item>@string/USD_AZN</item>
+        <item>@string/USD_BAM</item>
+        <item>@string/USD_BBD</item>
+        <item>@string/USD_BDT</item>
+        <item>@string/USD_BGN</item>
+        <item>@string/USD_BHD</item>
+        <item>@string/USD_BIF</item>
+        <item>@string/USD_BMD</item>
+        <item>@string/USD_BND</item>
+        <item>@string/USD_BOB</item>
+        <item>@string/USD_BRL</item>
+        <item>@string/USD_BSD</item>
+        <item>@string/USD_BTC</item>
+        <item>@string/USD_BTN</item>
+        <item>@string/USD_BWP</item>
+        <item>@string/USD_BYN</item>
+        <item>@string/USD_BZD</item>
+        <item>@string/USD_CAD</item>
+        <item>@string/USD_CDF</item>
+        <item>@string/USD_CHF</item>
+        <item>@string/USD_CLP</item>
+        <item>@string/USD_CNY</item>
+        <item>@string/USD_COP</item>
+        <item>@string/USD_CRC</item>
+        <item>@string/USD_CUP</item>
+        <item>@string/USD_CVE</item>
+        <item>@string/USD_CZK</item>
+        <item>@string/USD_DJF</item>
+        <item>@string/USD_DKK</item>
+        <item>@string/USD_DOP</item>
+        <item>@string/USD_DZD</item>
+        <item>@string/USD_EGP</item>
+        <item>@string/USD_ERN</item>
+        <item>@string/USD_ETB</item>
+        <item>@string/USD_EUR</item>
+        <item>@string/USD_FJD</item>
+        <item>@string/USD_FKP</item>
+        <item>@string/USD_GBP</item>
+        <item>@string/USD_GEL</item>
+        <item>@string/USD_GGP</item>
+        <item>@string/USD_GHS</item>
+        <item>@string/USD_GIP</item>
+        <item>@string/USD_GMD</item>
+        <item>@string/USD_GNF</item>
+        <item>@string/USD_GTQ</item>
+        <item>@string/USD_GYD</item>
+        <item>@string/USD_HKD</item>
+        <item>@string/USD_HNL</item>
+        <item>@string/USD_HRK</item>
+        <item>@string/USD_HTG</item>
+        <item>@string/USD_HUF</item>
+        <item>@string/USD_IDR</item>
+        <item>@string/USD_ILS</item>
+        <item>@string/USD_IMP</item>
+        <item>@string/USD_INR</item>
+        <item>@string/USD_IQD</item>
+        <item>@string/USD_IRR</item>
+        <item>@string/USD_ISK</item>
+        <item>@string/USD_JEP</item>
+        <item>@string/USD_JMD</item>
+        <item>@string/USD_JOD</item>
+        <item>@string/USD_JPY</item>
+        <item>@string/USD_KES</item>
+        <item>@string/USD_KGS</item>
+        <item>@string/USD_KHR</item>
+        <item>@string/USD_KMF</item>
+        <item>@string/USD_KPW</item>
+        <item>@string/USD_KRW</item>
+        <item>@string/USD_KWD</item>
+        <item>@string/USD_KYD</item>
+        <item>@string/USD_KZT</item>
+        <item>@string/USD_LAK</item>
+        <item>@string/USD_LBP</item>
+        <item>@string/USD_LKR</item>
+        <item>@string/USD_LRD</item>
+        <item>@string/USD_LSL</item>
+        <item>@string/USD_LYD</item>
+        <item>@string/USD_MAD</item>
+        <item>@string/USD_MDL</item>
+        <item>@string/USD_MGA</item>
+        <item>@string/USD_MKD</item>
+        <item>@string/USD_MMK</item>
+        <item>@string/USD_MNT</item>
+        <item>@string/USD_MOP</item>
+        <item>@string/USD_MRO</item>
+        <item>@string/USD_MUR</item>
+        <item>@string/USD_MVR</item>
+        <item>@string/USD_MWK</item>
+        <item>@string/USD_MXN</item>
+        <item>@string/USD_MYR</item>
+        <item>@string/USD_MZN</item>
+        <item>@string/USD_NAD</item>
+        <item>@string/USD_NGN</item>
+        <item>@string/USD_NIO</item>
+        <item>@string/USD_NOK</item>
+        <item>@string/USD_NPR</item>
+        <item>@string/USD_NZD</item>
+        <item>@string/USD_OMR</item>
+        <item>@string/USD_PAB</item>
+        <item>@string/USD_PEN</item>
+        <item>@string/USD_PGK</item>
+        <item>@string/USD_PHP</item>
+        <item>@string/USD_PKR</item>
+        <item>@string/USD_PLN</item>
+        <item>@string/USD_PYG</item>
+        <item>@string/USD_QAR</item>
+        <item>@string/USD_RON</item>
+        <item>@string/USD_RSD</item>
+        <item>@string/USD_RUB</item>
+        <item>@string/USD_RWF</item>
+        <item>@string/USD_SAR</item>
+        <item>@string/USD_SBD</item>
+        <item>@string/USD_SCR</item>
+        <item>@string/USD_SDG</item>
+        <item>@string/USD_SEK</item>
+        <item>@string/USD_SGD</item>
+        <item>@string/USD_SHP</item>
+        <item>@string/USD_SLL</item>
+        <item>@string/USD_SOS</item>
+        <item>@string/USD_SRD</item>
+        <item>@string/USD_SSP</item>
+        <item>@string/USD_STN</item>
+        <item>@string/USD_SVC</item>
+        <item>@string/USD_SYP</item>
+        <item>@string/USD_SZL</item>
+        <item>@string/USD_THB</item>
+        <item>@string/USD_TJS</item>
+        <item>@string/USD_TMT</item>
+        <item>@string/USD_TND</item>
+        <item>@string/USD_TOP</item>
+        <item>@string/USD_TRY</item>
+        <item>@string/USD_TTD</item>
+        <item>@string/USD_TWD</item>
+        <item>@string/USD_TZS</item>
+        <item>@string/USD_UAH</item>
+        <item>@string/USD_UGX</item>
+        <item>@string/USD_USD</item>
+        <item>@string/USD_UYU</item>
+        <item>@string/USD_UZS</item>
+        <item>@string/USD_VEF</item>
+        <item>@string/USD_VND</item>
+        <item>@string/USD_VUV</item>
+        <item>@string/USD_WST</item>
+        <item>@string/USD_XAF</item>
+        <item>@string/USD_XAG</item>
+        <item>@string/USD_XAU</item>
+        <item>@string/USD_XCD</item>
+        <item>@string/USD_XOF</item>
+        <item>@string/USD_XPF</item>
+        <item>@string/USD_YER</item>
+        <item>@string/USD_ZAR</item>
+        <item>@string/USD_ZMW</item>
+        <item>@string/USD_ZWL</item>
+    </string-array>
+
+</resources>
