@@ -14,7 +14,6 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class SelectCurrencyRepositoryImp @Inject constructor(
-    appLocalDataSource: AppLocalDataSource
 ) : SelectCurrencyRepository {
 
     override suspend fun selectCurrency(): Flow<List<Currency>> {
