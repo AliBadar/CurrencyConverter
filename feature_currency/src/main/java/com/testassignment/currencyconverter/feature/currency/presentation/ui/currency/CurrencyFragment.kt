@@ -42,7 +42,7 @@ class CurrencyFragment : Fragment() {
     @Inject
     lateinit var myPreference: MyPreference
 
-    var currenciesList: List<ExchangeRateData>?= null
+    var currenciesList: List<ExchangeRateData>? = null
 
 
     private val currencyViewModel: CurrencyViewModel by lazy {
@@ -75,33 +75,39 @@ class CurrencyFragment : Fragment() {
             }
         }
 
-        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>("baseCurrency")?.observe(viewLifecycleOwner){baseCurrency ->
-            if (baseCurrency.isNotEmpty()){
-                this.baseCurrency = baseCurrency
-                myPreference.saveBaseCurrency(baseCurrency)
-                mBinding.txtBaseCurrency.text = baseCurrency
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>("baseCurrency")
+            ?.observe(viewLifecycleOwner) { baseCurrency ->
+                if (baseCurrency.isNotEmpty()) {
+                    this.baseCurrency = baseCurrency
+                    myPreference.saveBaseCurrency(baseCurrency)
+                    mBinding.txtBaseCurrency.text = baseCurrency
+                    covertCurrencies()
+                }
             }
-        }
 
-        mBinding.etAmount.addTextChangedListener {text ->
+        mBinding.etAmount.addTextChangedListener { text ->
             var amount = 1.0
-            if (text?.isNotEmpty() == true){
+            if (text?.isNotEmpty() == true) {
                 amount = text.toString().toDouble()
             }
-            currencyViewModel.convertCurrencies(currenciesList,amount, baseCurrency)
+            currencyViewModel.convertCurrencies(currenciesList, amount, baseCurrency)
             exchangeRatesAdapter.setCurrencyList(currenciesList)
         }
 
     }
 
-    fun initClickListeners(){
+    fun initClickListeners() {
         mBinding.cardSelectedCurrency.setOnClickListener {
-            findNavController().navigate(CurrencyFragmentDirections.actionCurrencyFragmentToSelectCurrencyFragment(baseCurrency))
+            findNavController().navigate(
+                CurrencyFragmentDirections.actionCurrencyFragmentToSelectCurrencyFragment(
+                    baseCurrency
+                )
+            )
         }
     }
 
     private fun updateUI(exchangeRatesMainUiState: ExchangeRatesMainUiState) {
-        when(exchangeRatesMainUiState){
+        when (exchangeRatesMainUiState) {
             is LoadingState -> {
 //                showLoader()
             }
@@ -121,15 +127,20 @@ class CurrencyFragment : Fragment() {
         myPreference.saveTimeStamp(exchangeRates.timestamp)
         mBinding.txtBaseCurrency.text = baseCurrency
         currenciesList = exchangeRates?.rates
+
+        covertCurrencies()
+    }
+
+    private fun covertCurrencies() {
         var amount = 1.0
-        if (mBinding.etAmount.text?.isNotEmpty() == true){
+        if (mBinding.etAmount.text?.isNotEmpty() == true) {
             amount = mBinding.etAmount.text.toString().toDouble()
         }
         currencyViewModel.convertCurrencies(currenciesList, amount, baseCurrency)
         exchangeRatesAdapter.setCurrencyList(currenciesList)
     }
 
-    private fun initRecyclerView(){
+    private fun initRecyclerView() {
         mBinding.rvConvertedCurrencies.also {
             it.adapter = exchangeRatesAdapter
         }

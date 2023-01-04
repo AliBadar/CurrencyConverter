@@ -17,6 +17,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import java.math.BigDecimal
+import java.text.DecimalFormat
 import javax.inject.Inject
 
 class CurrencyViewModel @Inject constructor(
@@ -60,17 +61,16 @@ class CurrencyViewModel @Inject constructor(
         val focusedCurrency = currenciesList?.singleOrNull { it.code == baseCurrency }
 //
         val fromRate = focusedCurrency?.rate
+        focusedCurrency?.convertedAmount = amount.toString()
         amount?.let { amount ->
             currenciesList
                 ?.filter { it.code != baseCurrency }
                 ?.forEach { exchangeRate ->
                     val toRate = exchangeRate.rate
                     fromRate?.let { fronmRate ->
-
-                        val conversionValue = CurrencyConversion.convertCurrency(
+                        exchangeRate.convertedAmount = CurrencyConversion.convertCurrency(
                             BigDecimal(amount), fromRate, toRate!!
                         )
-                        exchangeRate.convertedAmount = conversionValue.toDouble()
                     }
                 }
         }

@@ -1,6 +1,5 @@
 package com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.adapters
 
-import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -23,7 +22,7 @@ class ExchangeRatesAdapter  @Inject constructor(
 
             content?.let {currency ->
                 binding.tvCurrencyCode.text = currency.code
-                binding.tvCurrencyValue.text = String.format("%.4f", currency.convertedAmount)
+                binding.tvCurrencyValue.text = currency.convertedAmount
             }
         }
 

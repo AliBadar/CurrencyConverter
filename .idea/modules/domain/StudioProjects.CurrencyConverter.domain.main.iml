@@ -147,7 +147,7 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 32 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="CurrencyConverter.core.main" />
+    <orderEntry type="module" module-name="StudioProjects.CurrencyConverter.core.main" />
     <orderEntry type="module-library">
       <library name="Gradle: kaptGeneratedClasses">
         <CLASSES>

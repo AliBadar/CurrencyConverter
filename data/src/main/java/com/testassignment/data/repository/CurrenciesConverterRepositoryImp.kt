@@ -5,6 +5,7 @@ import com.testassignment.core.database.AppLocalDataSource
 import com.testassignment.core.network.Resource
 import com.testassignment.core.network.sources.ApiRemoteDataSource
 import com.testassignment.core.responses.exchane_rates.ExchangeRatesEntity
+import com.testassignment.core.utils.DateUtility
 import com.testassignment.core.utils.MyPreference
 import com.testassignment.data.mapper.ExchangeRatesMapper
 import com.testassignment.domain.repository.CurrencyConverterRepository
@@ -22,30 +23,37 @@ class CurrenciesConverterRepositoryImp @Inject constructor(
     @WorkerThread
     override suspend fun getExchangeRates(): Flow<Resource<ExchangeRatesEntity>> {
         return flow {
-            if (myPreference.getTimeStamp() > 0){
-                val localExchangeData = appLocalDataSource.getExchangeRatesData()
-                if (localExchangeData.isNullOrEmpty()){
-                    apiRemoteDataSource.getExchangeRates().apply {
-                        this.data?.rates?.currencies?.let { appLocalDataSource.addExchangeRateData(it) }
-                        val mapExchangeRates = exchangeRatesMapper.mapToEntity(this.data)
-                        emit(Resource(this.status, mapExchangeRates, this.message))
-                    }
-                }else{
-                    emit(Resource.success(ExchangeRatesEntity(myPreference.getBaseCurrency(), myPreference.getTimeStamp(), localExchangeData)))
+            if (DateUtility.getTimeDifference(previousTimeStamp = myPreference.getTimeStamp()) > 30) {
+                apiRemoteDataSource.getExchangeRates().apply {
+                    this.data?.timestamp = System.currentTimeMillis()
+                    this.data?.rates?.currencies?.let { appLocalDataSource.addExchangeRateData(it) }
+                    val mapExchangeRates = exchangeRatesMapper.mapToEntity(this.data)
+                    emit(Resource(this.status, mapExchangeRates, this.message))
                 }
-            }else{
+            } else {
                 val localExchangeData = appLocalDataSource.getExchangeRatesData()
-                if (localExchangeData.isNullOrEmpty()){
+                if (localExchangeData.isNullOrEmpty()) {
                     apiRemoteDataSource.getExchangeRates().apply {
-                        this.data?.rates?.currencies?.let { appLocalDataSource.addExchangeRateData(it) }
+                        this.data?.rates?.currencies?.let {
+                            appLocalDataSource.addExchangeRateData(
+                                it
+                            )
+                        }
                         val mapExchangeRates = exchangeRatesMapper.mapToEntity(this.data)
                         emit(Resource(this.status, mapExchangeRates, this.message))
                     }
-                }else{
-                    emit(Resource.success(ExchangeRatesEntity(myPreference.getBaseCurrency(), myPreference.getTimeStamp(), localExchangeData)))
+                } else {
+                    emit(
+                        Resource.success(
+                            ExchangeRatesEntity(
+                                myPreference.getBaseCurrency(),
+                                myPreference.getTimeStamp(),
+                                localExchangeData
+                            )
+                        )
+                    )
                 }
             }
-
         }
     }
 
