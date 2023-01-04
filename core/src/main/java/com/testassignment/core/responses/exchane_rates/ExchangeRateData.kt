@@ -14,7 +14,7 @@ data class ExchangeRateData(
     @ColumnInfo(name = "rate")
     var rate : Double? = null,
 
-    var convertedAmount : Double ?= null
+    var convertedAmount : String ?= null
 )
 
 

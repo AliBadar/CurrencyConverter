@@ -22,7 +22,7 @@ class ExchangeRatesAdapter  @Inject constructor(
 
             content?.let {currency ->
                 binding.tvCurrencyCode.text = currency.code
-                binding.tvCurrencyValue.text = currency.convertedAmount.toString()
+                binding.tvCurrencyValue.text = currency.convertedAmount
             }
         }
 
