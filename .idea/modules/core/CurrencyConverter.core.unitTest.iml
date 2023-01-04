@@ -227,10 +227,15 @@
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../core/build/generated/ap_generated_sources/debugUnitTest/out" />
-    <content url="file://$MODULE_DIR$/../../../core/build/generated/source/kapt/debugUnitTest" />
-    <content url="file://$MODULE_DIR$/../../../core/build/generated/source/kaptKotlin/debugUnitTest" />
+    <content url="file://$MODULE_DIR$/../../../core/build/generated/source/kapt/debugUnitTest">
+      <sourceFolder url="file://$MODULE_DIR$/../../../core/build/generated/source/kapt/debugUnitTest" isTestSource="true" generated="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../core/build/generated/source/kaptKotlin/debugUnitTest">
+      <sourceFolder url="file://$MODULE_DIR$/../../../core/build/generated/source/kaptKotlin/debugUnitTest" isTestSource="true" generated="true" />
+    </content>
     <content url="file://$MODULE_DIR$/../../../core/src/test">
       <sourceFolder url="file://$MODULE_DIR$/../../../core/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../core/src/test/resources" type="java-test-resource" />
     </content>
     <content url="file://$MODULE_DIR$/../../../core/src/testDebug" />
     <orderEntry type="jdk" jdkName="Android API 32 Platform" jdkType="Android SDK" />
