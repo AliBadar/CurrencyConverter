@@ -34,7 +34,7 @@ class CurrenciesConverterRepositoryImp @Inject constructor(
                 val localExchangeData = appLocalDataSource.getExchangeRatesData()
                 if (localExchangeData.isNullOrEmpty()) {
                     apiRemoteDataSource.getExchangeRates().apply {
-                        this.data?.rates?.currencies?.let {
+                        this?.data?.rates?.currencies?.let {
                             appLocalDataSource.addExchangeRateData(
                                 it
                             )

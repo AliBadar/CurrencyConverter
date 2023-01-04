@@ -10,7 +10,7 @@ class AppLocalDataSource @Inject constructor(private val appDao: AppDao) {
 
     suspend fun addExchangeRateData(exchangeRateData: List<ExchangeRateData>) = appDao.addExchangeRateData(exchangeRateData)
 //
-    suspend fun getExchangeRatesData() = appDao.getExchangeRatesData()
+    suspend fun getExchangeRatesData():List<ExchangeRateData>?  = appDao.getExchangeRatesData()
 
 
 }

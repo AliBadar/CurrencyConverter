@@ -14,6 +14,7 @@
           <stringArguments>
             <stringArg name="classpath">
               <args>
+                <arg>$MODULE_DIR$/../../../feature_currency/build/intermediates/compile_app_classes_jar/debug/classes.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/ab1f0f2ab19a25d58cad17a457aac63b/transformed/junit-1.1.3-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/b80af42438ac03a33086bbf755458da2/transformed/espresso-core-3.4.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/d14cde629cedcd1947e37c7de65c2a08/transformed/hilt-android-testing-2.42-api.jar</arg>

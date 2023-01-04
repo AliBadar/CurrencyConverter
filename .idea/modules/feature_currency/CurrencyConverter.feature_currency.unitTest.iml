@@ -15,6 +15,7 @@
             <stringArg name="classpath">
               <args>
                 <arg>$MODULE_DIR$/../../../feature_currency/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar</arg>
+                <arg>$MODULE_DIR$/../../../feature_currency/build/intermediates/compile_app_classes_jar/debug/classes.jar</arg>
                 <arg>$MODULE_DIR$/../../../app/build/intermediates/compile_app_classes_jar/debug/classes.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/992ee99d056479044d2983bd8a99fb53/transformed/viewbinding-7.2.1-api.jar</arg>
                 <arg>$MODULE_DIR$/../../../domain/build/intermediates/compile_library_classes_jar/debug/classes.jar</arg>
