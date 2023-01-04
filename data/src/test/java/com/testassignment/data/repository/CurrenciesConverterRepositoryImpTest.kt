@@ -5,7 +5,7 @@ import com.testassignment.core.database.AppLocalDataSource
 import com.testassignment.core.network.Resource
 import com.testassignment.core.network.sources.ApiRemoteDataSource
 import com.testassignment.core.utils.MyPreference
-import com.testassignment.data.FakeRemoteData
+import com.testassignment.data.MockTestUtil
 import com.testassignment.data.MainCoroutinesRule
 import com.testassignment.data.mapper.ExchangeRatesMapper
 import io.mockk.*
@@ -14,7 +14,6 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.CoreMatchers
 import org.hamcrest.MatcherAssert
-import org.junit.Assert.*
 
 import org.junit.After
 import org.junit.Before
@@ -51,10 +50,10 @@ class CurrenciesConverterRepositoryImpTest {
 
     @Test
     fun `get exchangeRatesData should return success response from remote server`() = runBlocking {
-        val givenExchangeRates = FakeRemoteData.getExchangeRatesData()
+        val givenExchangeRates = MockTestUtil.getExchangeRatesData()
         coEvery { apiRemoteDataSource.getExchangeRates() }.returns(Resource.success(givenExchangeRates))
         coEvery { myPreference.getTimeStamp() }.returns(System.currentTimeMillis())
-        coEvery { exchangeRatesMapper.mapToEntity(any()) }.answers { FakeRemoteData.getMapEntity(givenExchangeRates) }
+        coEvery { exchangeRatesMapper.mapToEntity(any()) }.answers { MockTestUtil.getMapEntity(givenExchangeRates) }
         coEvery { appLocalDataSource.getExchangeRatesData() }.returns(null)
         coEvery { appLocalDataSource.addExchangeRateData(any()) } just Runs // Mock method
 
@@ -67,10 +66,10 @@ class CurrenciesConverterRepositoryImpTest {
 
     @Test
     fun `get exchangeRatesData should return error from remote server`() = runBlocking {
-        val givenErrorMessage = FakeRemoteData.getErrorMessage()
+        val givenErrorMessage = MockTestUtil.getErrorMessage()
         coEvery { apiRemoteDataSource.getExchangeRates() }.returns(Resource.error(null, givenErrorMessage))
         coEvery { myPreference.getTimeStamp() }.returns(System.currentTimeMillis())
-        coEvery { exchangeRatesMapper.mapToEntity(any()) }.answers { FakeRemoteData.getMapEntity() }
+        coEvery { exchangeRatesMapper.mapToEntity(any()) }.answers { MockTestUtil.getMapEntity() }
         coEvery { appLocalDataSource.getExchangeRatesData() }.returns(null)
         coEvery { appLocalDataSource.addExchangeRateData(any()) } just Runs // Mock method
 
