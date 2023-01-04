@@ -59,6 +59,7 @@ class CurrencyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mBinding.shimmerLayout.startShimmer()
         initRecyclerView()
         initObservations()
         initClickListeners()
@@ -131,13 +132,6 @@ class CurrencyFragment : Fragment() {
     private fun initRecyclerView(){
         mBinding.rvConvertedCurrencies.also {
             it.adapter = exchangeRatesAdapter
-            it.addItemDecoration(
-                GridSpacingItemDecoration(
-                    3,
-                    100,
-                    true
-                )
-            )
         }
     }
 

@@ -3,6 +3,30 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/CurrencyConverter.iml" filepath="$PROJECT_DIR$/.idea/modules/CurrencyConverter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CurrencyConverter.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CurrencyConverter.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CurrencyConverter.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CurrencyConverter.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CurrencyConverter.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CurrencyConverter.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CurrencyConverter.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CurrencyConverter.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/CurrencyConverter.common.iml" filepath="$PROJECT_DIR$/.idea/modules/common/CurrencyConverter.common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/CurrencyConverter.common.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/common/CurrencyConverter.common.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/CurrencyConverter.common.main.iml" filepath="$PROJECT_DIR$/.idea/modules/common/CurrencyConverter.common.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/CurrencyConverter.common.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/common/CurrencyConverter.common.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/CurrencyConverter.core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/CurrencyConverter.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/CurrencyConverter.core.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core/CurrencyConverter.core.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/CurrencyConverter.core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/core/CurrencyConverter.core.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/CurrencyConverter.core.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core/CurrencyConverter.core.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/CurrencyConverter.data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/CurrencyConverter.data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/CurrencyConverter.data.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/data/CurrencyConverter.data.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/CurrencyConverter.data.main.iml" filepath="$PROJECT_DIR$/.idea/modules/data/CurrencyConverter.data.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/CurrencyConverter.data.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/data/CurrencyConverter.data.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/CurrencyConverter.domain.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/CurrencyConverter.domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/CurrencyConverter.domain.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/CurrencyConverter.domain.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/CurrencyConverter.domain.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/CurrencyConverter.domain.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/CurrencyConverter.domain.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/CurrencyConverter.domain.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature_currency/CurrencyConverter.feature_currency.iml" filepath="$PROJECT_DIR$/.idea/modules/feature_currency/CurrencyConverter.feature_currency.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature_currency/CurrencyConverter.feature_currency.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature_currency/CurrencyConverter.feature_currency.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature_currency/CurrencyConverter.feature_currency.main.iml" filepath="$PROJECT_DIR$/.idea/modules/feature_currency/CurrencyConverter.feature_currency.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature_currency/CurrencyConverter.feature_currency.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature_currency/CurrencyConverter.feature_currency.unitTest.iml" />
     </modules>
   </component>
 </project>
