@@ -93,6 +93,10 @@ class CurrencyFragment : Fragment() {
 
         mBinding.etAmount.addTextChangedListener { text ->
             var amount = 1.0
+            if (text?.startsWith(".") == true){
+                text?.replace(0,0, "1")
+            }
+
             if (text?.isNotEmpty() == true) {
                 amount = text.toString().toDouble()
             }

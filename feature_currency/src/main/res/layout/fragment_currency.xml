@@ -16,7 +16,7 @@
         android:background="@drawable/edittext_background"
         android:hint="@string/enter_amount"
         android:imeOptions="actionDone"
-        android:inputType="phone"
+        android:inputType="numberDecimal"
         android:maxLines="1"
         android:paddingStart="@dimen/_16sdp"
         android:paddingEnd="@dimen/_16sdp"
