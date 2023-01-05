@@ -2,6 +2,7 @@
   <library name="Gradle: com.google.dagger:hilt-android-testing:2.42@aar">
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/5539109ffd2b1fa2b935a2844c874a44/transformed/hilt-android-testing-2.42/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5539109ffd2b1fa2b935a2844c874a44/transformed/hilt-android-testing-2.42/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5539109ffd2b1fa2b935a2844c874a44/transformed/hilt-android-testing-2.42/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>

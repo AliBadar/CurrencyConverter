@@ -8,6 +8,8 @@ import javax.inject.Singleton
 
 class MyPreference @Inject constructor(context: Context) {
 
+    var mContext = context
+
     private val BASE_CURRENCY = "my.preference.currency.key"
     private val TIME_STAMP = "my.preference.timestamp.key"
 

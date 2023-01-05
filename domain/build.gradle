@@ -47,4 +47,28 @@ dependencies {
 
     implementation 'com.google.code.gson:gson:2.10'
 
+    // For local unit tests
+    testImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
+    testImplementation "junit:junit:$junit_test_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+    testImplementation "androidx.arch.core:core-testing:$arc_version"
+    testImplementation "com.google.truth:truth:$truth_version"
+    testImplementation "org.robolectric:robolectric:$robolectric_version"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$mock_version"
+    testImplementation "androidx.test.ext:junit:$androidx_junit_test_version"
+    testImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    testImplementation "io.mockk:mockk:$mock_test_version"
+
+    // For instrumentation tests
+    androidTestImplementation  "com.google.dagger:hilt-android-testing:$hilt_version"
+    kaptAndroidTest "com.google.dagger:hilt-compiler:$hilt_version"
+    androidTestImplementation "junit:junit:$junit_test_version"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+    androidTestImplementation "androidx.arch.core:core-testing:$arc_version"
+    androidTestImplementation "com.google.truth:truth:$truth_version"
+    androidTestImplementation "androidx.test.ext:junit:$androidx_junit_test_version"
+    androidTestImplementation "androidx.test.ext:junit:$androidx_junit_test_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+
+
 }
