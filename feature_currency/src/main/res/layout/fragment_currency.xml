@@ -9,16 +9,17 @@
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/et_amount"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
         android:background="@drawable/edittext_background"
-        android:hint="Enter amount"
+        android:hint="@string/enter_amount"
+        android:imeOptions="actionDone"
         android:inputType="phone"
         android:maxLines="1"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
+        android:paddingStart="@dimen/_16sdp"
+        android:paddingEnd="@dimen/_16sdp"
         android:textColor="@color/et_text_color"
         android:textColorHint="#969AA0"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,13 +28,13 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_selected_currency"
-        android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
         app:cardBackgroundColor="@color/card_selected_currency_background_color"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="8dp"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardElevation="@dimen/_8sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_amount">
 
@@ -43,38 +44,81 @@
             android:gravity="center"
             android:orientation="horizontal">
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_country_flag"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:src="@drawable/ic_placeholder" />
+
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/txt_base_currency"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="🇺🇸 USD"
+                android:layout_marginStart="@dimen/_4sdp"
                 android:textColor="@color/text_color"
-                android:textSize="16sp" />
+                android:textSize="@dimen/_12ssp" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/_16sdp"
                 android:src="@drawable/ic_arrow_down" />
 
         </LinearLayout>
 
-
     </androidx.cardview.widget.CardView>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_selected_currency"
+        app:shimmer_duration="1000"
+        app:shimmer_repeat_mode="restart">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/item_currency_converted_shimmer" />
+
+            <include layout="@layout/item_currency_converted_shimmer" />
+
+            <include layout="@layout/item_currency_converted_shimmer" />
+
+            <include layout="@layout/item_currency_converted_shimmer" />
+
+            <include layout="@layout/item_currency_converted_shimmer" />
+
+            <include layout="@layout/item_currency_converted_shimmer" />
+
+            <include layout="@layout/item_currency_converted_shimmer" />
+
+            <include layout="@layout/item_currency_converted_shimmer" />
+
+            <include layout="@layout/item_currency_converted_shimmer" />
+
+            <include layout="@layout/item_currency_converted_shimmer" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_converted_currencies"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/_8sdp"
         android:orientation="vertical"
         android:overScrollMode="never"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_selected_currency"
-        app:spanCount="3"
         tools:listitem="@layout/item_currency_converted" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

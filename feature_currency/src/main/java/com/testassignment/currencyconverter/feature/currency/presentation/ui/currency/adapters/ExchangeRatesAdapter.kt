@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.testassignment.core.responses.exchane_rates.ExchangeRateData
 import com.testassignment.currencyconverter.feature.currency.databinding.ItemCurrencyConvertedBinding
+import com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.utils.DrawableUtility
 import javax.inject.Inject
 
 class ExchangeRatesAdapter  @Inject constructor(
@@ -19,15 +20,14 @@ class ExchangeRatesAdapter  @Inject constructor(
         fun bind(
             content: ExchangeRateData,
         ) {
-
             content?.let {currency ->
+                binding.imgCountryFlag.setImageResource(DrawableUtility.getDrawableResourceByName(currency.code.lowercase(), itemView.context))
                 binding.tvCurrencyCode.text = currency.code
                 binding.tvCurrencyValue.text = currency.convertedAmount
             }
         }
 
         companion object {
-
             fun from(parent: ViewGroup): CurrencyViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ItemCurrencyConvertedBinding.inflate(layoutInflater, parent, false)

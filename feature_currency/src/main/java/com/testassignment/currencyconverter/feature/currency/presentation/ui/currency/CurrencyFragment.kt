@@ -21,6 +21,7 @@ import com.testassignment.currencyconverter.feature.currency.presentation.ui.cur
 import com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.uistates.ErrorState
 import com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.uistates.ExchangeRatesMainUiState
 import com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.uistates.LoadingState
+import com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.utils.DrawableUtility
 import com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.utils.GridSpacingItemDecoration
 import com.testassignment.currencyconverter.feature.di.inject
 import kotlinx.coroutines.launch
@@ -80,6 +81,12 @@ class CurrencyFragment : Fragment() {
                     this.baseCurrency = baseCurrency
                     myPreference.saveBaseCurrency(baseCurrency)
                     mBinding.txtBaseCurrency.text = baseCurrency
+                    mBinding.imgCountryFlag.setImageResource(
+                        DrawableUtility.getDrawableResourceByName(
+                            myPreference.getBaseCurrency().lowercase(),
+                            requireContext()
+                        )
+                    )
                     covertCurrencies()
                 }
             }
@@ -108,13 +115,16 @@ class CurrencyFragment : Fragment() {
     private fun updateUI(exchangeRatesMainUiState: ExchangeRatesMainUiState) {
         when (exchangeRatesMainUiState) {
             is LoadingState -> {
-//                showLoader()
+                mBinding.shimmerLayout.startShimmer()
             }
             is Content -> {
+                mBinding.shimmerLayout.hideShimmer()
+                mBinding.shimmerLayout.visibility = View.GONE
                 setData(exchangeRatesMainUiState.exchangeRates)
             }
             is ErrorState -> {
-//                view?.showSnack(mainUIState.message)
+                mBinding.shimmerLayout.hideShimmer()
+                mBinding.shimmerLayout.visibility = View.GONE
             }
         }
 
@@ -125,6 +135,12 @@ class CurrencyFragment : Fragment() {
         myPreference.saveBaseCurrency(baseCurrency)
         myPreference.saveTimeStamp(exchangeRates.timestamp)
         mBinding.txtBaseCurrency.text = baseCurrency
+        mBinding.imgCountryFlag.setImageResource(
+            DrawableUtility.getDrawableResourceByName(
+                myPreference.getBaseCurrency().lowercase(),
+                requireContext()
+            )
+        )
         currenciesList = exchangeRates?.rates
 
         covertCurrencies()
@@ -142,13 +158,6 @@ class CurrencyFragment : Fragment() {
     private fun initRecyclerView() {
         mBinding.rvConvertedCurrencies.also {
             it.adapter = exchangeRatesAdapter
-            it.addItemDecoration(
-                GridSpacingItemDecoration(
-                    3,
-                    100,
-                    true
-                )
-            )
         }
     }
 
