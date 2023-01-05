@@ -204,5 +204,12 @@ class MockTestUtil {
         fun getErrorMessage(): String{
             return "Invalid Api Key"
         }
+
+        fun getNoInternetAndNoDataFoundMessage(): String{
+            return NETWORK_OR_DATA_NOT_AVAILABLE
+        }
+
+        const val NETWORK_OR_DATA_NOT_AVAILABLE = "Network is not available and no local data found."
+
     }
 }
