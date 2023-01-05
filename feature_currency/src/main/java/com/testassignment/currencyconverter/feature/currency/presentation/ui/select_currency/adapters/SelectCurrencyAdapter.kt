@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.testassignment.core.responses.select_currency.Currency
 import com.testassignment.currencyconverter.feature.currency.databinding.ItemCurrencySelectedBinding
+import com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.utils.DrawableUtility
 import com.testassignment.currencyconverter.feature.currency.presentation.ui.select_currency.interfaces.OnItemClickListener
 import javax.inject.Inject
 
@@ -29,6 +30,10 @@ class SelectCurrencyAdapter  @Inject constructor(
         ) {
 
             content?.let {currency ->
+                currency.code?.let {
+                    DrawableUtility.getDrawableResourceByName(
+                        it.lowercase(), itemView.context)
+                }?.let { binding.imgCountryFlag.setImageResource(it) }
                 binding.tvCurrencyCode.text = currency.name
                 if (currency.code.equals(baseCurrency)){
                     binding.imgCheck.visibility = View.VISIBLE
