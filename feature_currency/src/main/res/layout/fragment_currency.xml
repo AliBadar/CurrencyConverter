@@ -48,13 +48,14 @@
                 android:id="@+id/img_country_flag"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_15sdp"
-                android:src="@drawable/ic_placeholder" />
+                android:src="@drawable/usd_usd" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/txt_base_currency"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4sdp"
+                android:text="USD"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/_12ssp" />
 

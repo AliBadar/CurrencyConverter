@@ -24,7 +24,7 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideWeathersDao(database: AppDatabase): AppDao {
+    fun provideCurrenciesDao(database: AppDatabase): AppDao {
         return database.citiesDao()
     }
 }

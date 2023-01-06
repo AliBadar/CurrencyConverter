@@ -12,6 +12,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.testassignment.common.showSnack
 import com.testassignment.core.responses.exchane_rates.ExchangeRateData
 import com.testassignment.core.responses.exchane_rates.ExchangeRatesEntity
 import com.testassignment.core.utils.MyPreference
@@ -38,7 +39,7 @@ class CurrencyFragment : Fragment() {
     lateinit var exchangeRatesAdapter: ExchangeRatesAdapter
 
 
-    private var baseCurrency = ""
+    private var baseCurrency = "USD"
 
     @Inject
     lateinit var myPreference: MyPreference
@@ -60,6 +61,7 @@ class CurrencyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setValues()
         initRecyclerView()
         initObservations()
         initClickListeners()
@@ -129,16 +131,14 @@ class CurrencyFragment : Fragment() {
             is ErrorState -> {
                 mBinding.shimmerLayout.hideShimmer()
                 mBinding.shimmerLayout.visibility = View.GONE
+                view?.showSnack(exchangeRatesMainUiState.message)
             }
         }
 
     }
 
     private fun setData(exchangeRates: ExchangeRatesEntity) {
-        baseCurrency = exchangeRates.base
-        myPreference.saveBaseCurrency(baseCurrency)
         myPreference.saveTimeStamp(exchangeRates.timestamp)
-        mBinding.txtBaseCurrency.text = baseCurrency
         mBinding.imgCountryFlag.setImageResource(
             DrawableUtility.getDrawableResourceByName(
                 myPreference.getBaseCurrency().lowercase(),
@@ -163,6 +163,11 @@ class CurrencyFragment : Fragment() {
         mBinding.rvConvertedCurrencies.also {
             it.adapter = exchangeRatesAdapter
         }
+    }
+
+    private fun setValues(){
+        baseCurrency = myPreference.getBaseCurrency()
+        mBinding.txtBaseCurrency.text = baseCurrency
     }
 
 
