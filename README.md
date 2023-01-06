@@ -39,6 +39,3 @@ JetPack
 - [MockK](https://mockk.io) - For Mocking and Unit Testing
 
 
-## Contributions
-Please feel free to file an issue for errors, suggestions or feature requests. Pull requests are also encouraged.
-
