@@ -122,4 +122,14 @@
         app:layout_constraintTop_toBottomOf="@+id/card_selected_currency"
         tools:listitem="@layout/item_currency_converted" />
 
+    <Button
+        android:id="@+id/btn_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/card_selected_currency"
+        app:layout_constraintEnd_toStartOf="@+id/card_selected_currency"
+        app:layout_constraintTop_toTopOf="@+id/card_selected_currency" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

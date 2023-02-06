@@ -17,6 +17,10 @@ class MockTestUtil {
             return exchangeRateList
         }
 
+        fun getBaseCurrenciesList(): ArrayList<String> {
+            return arrayListOf("USD", "AED", "INR")
+        }
+
         fun getCurrencyList(): List<Currency>{
             var currencyList = (0 until 5).map {
                 Currency("USD", "United States of America")

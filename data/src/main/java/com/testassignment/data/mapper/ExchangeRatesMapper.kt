@@ -11,8 +11,8 @@ open class ExchangeRatesMapper  @Inject constructor()  : Mapper<ExchangeRatesEnt
     override fun mapToEntity(type: ExchangeRates?): ExchangeRatesEntity {
         return ExchangeRatesEntity(
             base = type?.base.toString(),
-            timestamp = type?.timestamp!!,
-            rates = type?.rates?.currencies!!,
+            timestamp = type?.timestamp?:0L,
+            rates = type?.rates?.currencies ?: listOf(),
         )
    }
 }

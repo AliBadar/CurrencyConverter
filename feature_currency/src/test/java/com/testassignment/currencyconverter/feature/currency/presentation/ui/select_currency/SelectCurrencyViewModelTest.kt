@@ -2,6 +2,7 @@ package com.testassignment.currencyconverter.feature.currency.presentation.ui.se
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
+import com.testassignment.core.utils.MyPreference
 import com.testassignment.currencyconverter.feature.currency.MainCoroutinesRule
 import com.testassignment.currencyconverter.feature.currency.MockTestUtil
 import com.testassignment.currencyconverter.feature.currency.presentation.ui.select_currency.uistates.Content
@@ -32,6 +33,9 @@ class SelectCurrencyViewModelTest {
     @MockK
     lateinit var selectCurrencyUseCase: SelectCurrencyUseCase
 
+    @MockK
+    lateinit var myPreference: MyPreference
+
     @Before
     fun setUp() {
         MockKAnnotations.init(this)
@@ -47,7 +51,11 @@ class SelectCurrencyViewModelTest {
                 selectCurrencyUseCase()
             }.returns(flowOf(givenCurrencyList))
 
-            sut = SelectCurrencyViewModel(selectCurrencyUseCase)
+            coEvery {
+                myPreference.getBaseCurrencies()
+            }returns(MockTestUtil.getBaseCurrenciesList())
+
+            sut = SelectCurrencyViewModel(selectCurrencyUseCase, myPreference)
 
             sut.selectCurrencyData.test {
                 assertEquals(Content(givenCurrencyList), awaitItem())

@@ -37,7 +37,7 @@
             app:layout_constraintStart_toEndOf="@+id/img_country_flag"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/tv_currency_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -45,6 +45,8 @@
             android:layout_marginEnd="@dimen/_16sdp"
             android:textAlignment="textEnd"
             android:maxLines="1"
+            android:background="@null"
+            android:inputType="numberDecimal"
             android:textColor="@color/text_color"
             android:textSize="@dimen/_12ssp"
             app:layout_constraintBottom_toBottomOf="parent"

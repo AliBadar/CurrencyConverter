@@ -53,8 +53,19 @@ class SelectCurrencyFragment : Fragment(), OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         baseCurrency = arguments?.getString("baseCurrency").toString()
+        initToolBar()
         initRecyclerView()
         initObservations()
+    }
+
+    private fun initToolBar(){
+        mBinding.myToolbar.apply {
+            setNavigationIcon(R.drawable.ic_arrow_down)
+            title = "Select Currency"
+            setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
+        }
     }
 
     private fun initRecyclerView(){
@@ -95,9 +106,11 @@ class SelectCurrencyFragment : Fragment(), OnItemClickListener {
         inject()
     }
 
-    override fun onItemClick(baseCurrency: String) {
-        findNavController().previousBackStackEntry?.savedStateHandle?.set("baseCurrency", baseCurrency)
-        findNavController().popBackStack()
+    override fun onItemClick(baseCurrency: Currency) {
+        if (!baseCurrency.isSelected){
+            findNavController().previousBackStackEntry?.savedStateHandle?.set("baseCurrency", baseCurrency.code)
+            findNavController().popBackStack()
+        }
     }
 
 }

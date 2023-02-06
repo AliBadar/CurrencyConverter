@@ -35,14 +35,20 @@ class SelectCurrencyAdapter  @Inject constructor(
                         it.lowercase(), itemView.context)
                 }?.let { binding.imgCountryFlag.setImageResource(it) }
                 binding.tvCurrencyCode.text = currency.name
-                if (currency.code.equals(baseCurrency)){
-                    binding.imgCheck.visibility = View.VISIBLE
+//                if (currency.code.equals(baseCurrency)){
+//                    binding.imgCheck.visibility = View.VISIBLE
+//                }else{
+//                    binding.imgCheck.visibility = View.INVISIBLE
+//                }
+
+                binding.imgCheck.visibility = if (currency.isSelected) {
+                    View.VISIBLE
                 }else{
-                    binding.imgCheck.visibility = View.INVISIBLE
+                    View.INVISIBLE
                 }
 
                 itemView.setOnClickListener {
-                    onItemClickListener.onItemClick(currency.code.toString())
+                    onItemClickListener.onItemClick(currency)
                 }
             }
 

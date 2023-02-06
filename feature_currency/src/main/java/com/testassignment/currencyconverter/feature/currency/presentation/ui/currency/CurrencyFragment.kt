@@ -18,17 +18,18 @@ import com.testassignment.core.responses.exchane_rates.ExchangeRatesEntity
 import com.testassignment.core.utils.MyPreference
 import com.testassignment.currencyconverter.feature.currency.databinding.FragmentCurrencyBinding
 import com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.adapters.ExchangeRatesAdapter
+import com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.interfaces.OnAmountChangeListener
+import com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.interfaces.OnItemClickListener
 import com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.uistates.Content
 import com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.uistates.ErrorState
 import com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.uistates.ExchangeRatesMainUiState
 import com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.uistates.LoadingState
 import com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.utils.DrawableUtility
-import com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.utils.GridSpacingItemDecoration
 import com.testassignment.currencyconverter.feature.di.inject
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class CurrencyFragment : Fragment() {
+class CurrencyFragment : Fragment(), OnItemClickListener, OnAmountChangeListener {
 
     private lateinit var mBinding: FragmentCurrencyBinding
 
@@ -37,7 +38,6 @@ class CurrencyFragment : Fragment() {
 
     @Inject
     lateinit var exchangeRatesAdapter: ExchangeRatesAdapter
-
 
     private var baseCurrency = "USD"
 
@@ -82,6 +82,7 @@ class CurrencyFragment : Fragment() {
                 if (baseCurrency.isNotEmpty()) {
                     this.baseCurrency = baseCurrency
                     myPreference.saveBaseCurrency(baseCurrency)
+                    myPreference.saveBaseCurrencies(baseCurrency)
                     mBinding.txtBaseCurrency.text = baseCurrency
                     mBinding.imgCountryFlag.setImageResource(
                         DrawableUtility.getDrawableResourceByName(
@@ -89,14 +90,18 @@ class CurrencyFragment : Fragment() {
                             requireContext()
                         )
                     )
-                    covertCurrencies()
+                    var amount = 1.0
+                    if (mBinding.etAmount.text?.isNotEmpty() == true) {
+                        amount = mBinding.etAmount.text.toString().toDouble()
+                    }
+                    covertCurrencies(getFocusedCurrencyAmount())
                 }
             }
 
         mBinding.etAmount.addTextChangedListener { text ->
             var amount = 1.0
             if (text?.startsWith(".") == true){
-                text?.replace(0,0, "1")
+                text.replace(0,0, "1")
             }
 
             if (text?.isNotEmpty() == true) {
@@ -105,7 +110,6 @@ class CurrencyFragment : Fragment() {
             currencyViewModel.convertCurrencies(currenciesList, amount, baseCurrency)
             exchangeRatesAdapter.setCurrencyList(currenciesList)
         }
-
     }
 
     fun initClickListeners() {
@@ -115,6 +119,13 @@ class CurrencyFragment : Fragment() {
                     baseCurrency
                 )
             )
+        }
+        mBinding.btnClear.setOnClickListener {
+            myPreference.clearAllPrefs()
+            baseCurrency = "USD"
+            currenciesList = arrayListOf()
+            exchangeRatesAdapter.setCurrencyList(currenciesList)
+            mBinding.etAmount.setText("")
         }
     }
 
@@ -134,7 +145,6 @@ class CurrencyFragment : Fragment() {
                 view?.showSnack(exchangeRatesMainUiState.message)
             }
         }
-
     }
 
     private fun setData(exchangeRates: ExchangeRatesEntity) {
@@ -145,16 +155,14 @@ class CurrencyFragment : Fragment() {
                 requireContext()
             )
         )
-        currenciesList = exchangeRates?.rates
+//        currenciesList = exchangeRates?.rates
 
-        covertCurrencies()
+        covertCurrencies(getFocusedCurrencyAmount())
     }
 
-    private fun covertCurrencies() {
-        var amount = 1.0
-        if (mBinding.etAmount.text?.isNotEmpty() == true) {
-            amount = mBinding.etAmount.text.toString().toDouble()
-        }
+    private fun covertCurrencies(amount: Double) {
+
+        currenciesList = currencyViewModel.getSaveCurrencies()
         currencyViewModel.convertCurrencies(currenciesList, amount, baseCurrency)
         exchangeRatesAdapter.setCurrencyList(currenciesList)
     }
@@ -163,6 +171,9 @@ class CurrencyFragment : Fragment() {
         mBinding.rvConvertedCurrencies.also {
             it.adapter = exchangeRatesAdapter
         }
+
+        exchangeRatesAdapter.setOnItemClickListener(this)
+        exchangeRatesAdapter.setOnAmountChangeListener(this)
     }
 
     private fun setValues(){
@@ -175,4 +186,29 @@ class CurrencyFragment : Fragment() {
         super.onAttach(context)
         inject()
     }
+
+    override fun onItemClick(currencyItem: ExchangeRateData) {
+
+        myPreference.saveCurrenciesList(myPreference.getBaseCurrencies().run {
+            this.remove(currencyItem.code)
+            this
+        })
+        covertCurrencies(getFocusedCurrencyAmount())
+    }
+
+    override fun onAmountChangeListener(currencyItem: ExchangeRateData, value: String) {
+        if (value.isNotEmpty()){
+            baseCurrency = currencyItem.code
+            covertCurrencies(value.toDouble())
+        }
+    }
+
+    private fun getFocusedCurrencyAmount(): Double{
+        var amount = 1.0
+        if (mBinding.etAmount.text?.isNotEmpty() == true) {
+            amount = mBinding.etAmount.text.toString().toDouble()
+        }
+        return amount
+    }
+
 }

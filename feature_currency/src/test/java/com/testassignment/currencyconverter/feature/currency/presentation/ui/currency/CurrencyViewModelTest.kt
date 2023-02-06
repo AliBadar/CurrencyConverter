@@ -3,6 +3,7 @@ package com.testassignment.currencyconverter.feature.currency.presentation.ui.cu
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
 import com.testassignment.core.network.Resource
+import com.testassignment.core.utils.MyPreference
 import com.testassignment.currencyconverter.feature.currency.MainCoroutinesRule
 import com.testassignment.currencyconverter.feature.currency.MockTestUtil
 import com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.uistates.Content
@@ -35,6 +36,9 @@ class CurrencyViewModelTest {
     @MockK
     lateinit var getExchangeRatesUseCase: GetExchangeRatesUseCase
 
+    @MockK
+    lateinit var myPreference: MyPreference
+
     @Before
     fun setUp() {
         MockKAnnotations.init(this)
@@ -46,10 +50,14 @@ class CurrencyViewModelTest {
             val givenExchangeRates = MockTestUtil.createExchangeRatesEntity()
 
             coEvery {
+                myPreference.getBaseCurrencies()
+            }returns(MockTestUtil.getBaseCurrenciesList())
+
+            coEvery {
                 getExchangeRatesUseCase()
             }.returns(flowOf(Resource.success(givenExchangeRates)))
 
-            sut = CurrencyViewModel(getExchangeRatesUseCase)
+            sut = CurrencyViewModel(getExchangeRatesUseCase, myPreference)
 
             sut.exchangeRatesData.test {
                 assertEquals(Content(givenExchangeRates), awaitItem())
@@ -72,7 +80,11 @@ class CurrencyViewModelTest {
                 getExchangeRatesUseCase()
             }.returns(flowOf(Resource.error(null, givenErrorMessage)))
 
-            sut = CurrencyViewModel(getExchangeRatesUseCase)
+            coEvery {
+                myPreference.getBaseCurrencies()
+            }returns(MockTestUtil.getBaseCurrenciesList())
+
+            sut = CurrencyViewModel(getExchangeRatesUseCase, myPreference)
 
             sut.exchangeRatesData.test {
                 assertEquals(ErrorState(givenErrorMessage), awaitItem())

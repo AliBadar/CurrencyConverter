@@ -1,11 +1,13 @@
 package com.testassignment.currencyconverter.feature.currency.presentation.ui.currency
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.testassignment.core.network.Resource
 import com.testassignment.core.responses.exchane_rates.ExchangeRateData
+import com.testassignment.core.responses.select_currency.Currency
 import com.testassignment.core.utils.MyPreference
 import com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.uistates.Content
 import com.testassignment.currencyconverter.feature.currency.presentation.ui.currency.uistates.ErrorState
@@ -21,10 +23,13 @@ import java.text.DecimalFormat
 import javax.inject.Inject
 
 class CurrencyViewModel @Inject constructor(
-    private val getExchangeRatesUseCase: GetExchangeRatesUseCase
+    private val getExchangeRatesUseCase: GetExchangeRatesUseCase,
+    private val myPreference: MyPreference
 ) : ViewModel() {
     private val _exchangeRatesData = MutableStateFlow<ExchangeRatesMainUiState>(LoadingState)
     val exchangeRatesData = _exchangeRatesData.asStateFlow()
+
+    private var mListRates: List<ExchangeRateData>? = arrayListOf()
 
     init {
         getExchangeRates()
@@ -32,6 +37,7 @@ class CurrencyViewModel @Inject constructor(
 
     private fun getExchangeRates() {
         viewModelScope.launch {
+//            Log.e("context", "context: $coroutineContext")
             _exchangeRatesData.value = LoadingState
 
             getExchangeRatesUseCase().collect { resource ->
@@ -39,6 +45,8 @@ class CurrencyViewModel @Inject constructor(
                     Resource.Status.SUCCESS -> {
                         val data = resource.data
                         data?.let { exchangeRates ->
+                            mListRates = exchangeRates.rates
+                            exchangeRates.rates = getSaveCurrencies()
                             _exchangeRatesData.value = Content(exchangeRates)
                         }
                     }
@@ -50,6 +58,11 @@ class CurrencyViewModel @Inject constructor(
             }
         }
 
+    }
+
+    fun getSaveCurrencies(): List<ExchangeRateData>? {
+        val currencies = myPreference.getBaseCurrencies()
+        return mListRates?.filter { it.code in currencies }
     }
 
     fun convertCurrencies(
